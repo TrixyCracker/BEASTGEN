@@ -13,7 +13,9 @@ strangerDict = { "j" : 1, "k": 1, "w" : 1,
                 "x" : 3, "y": 1};
 
 vocalsDict = { "a" : 12, "e": 12, "i" : 11, 
-                "o" : 10, "u": 3 };
+				"o" : 10, "u": 3 };
+				
+
 
 var consonants = "";
 var stranger = "";
@@ -26,9 +28,8 @@ function initGen() {
 	var _list = document.getElementById("list");
 	_list.innerHTML = "";
 
-	for(var i = 0; i < 100; i++) {
 
-		for (var i = 0; i < 100; i++) {
+		for (var i = 0; i < 25; i++) {
 			var _li = document.createElement("li");
 
 			_li.appendChild(document.createTextNode(getBestemmia()));
@@ -36,14 +37,14 @@ function initGen() {
 			_list.appendChild(_li);
 		}
 
-	}
+
 
 }
 
 function getBestemmia() {
-	var doubleComboConsonantValue = 30;
-	var doubleConsonantValue = 60;
-	var doubleVocalValue = 90;
+	var doubleComboConsonantValue = 25 * 3;
+	var doubleConsonantValue = 50 * 2;
+	var doubleVocalValue = 75 * 2;
 	var strangerConsonantValue = 100;	
 
 	var memory = "";

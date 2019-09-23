@@ -5,36 +5,51 @@
 
 }
 
-body {
+@font-face {
 
-	background-color: #2b2424;
-	font-family: 'OpenSans';
+	font-family: 'OpenSans-Bold';
+	src: url('Open_Sans/OpenSans-Bold.ttf');
 
 }
 
-.minimalButton {
+@font-face {
 
-	background-color: #ff003c;
+	font-family: 'OpenSans-RegularItalic';
+	src: url('Open_Sans/OpenSans-RegularItalic.ttf');
+
+}
+
+body {
+
+	background-color: #2b2424;
+
+}
+
+a.minimalButton {
+
+	background-color: #FF5722;
 	border: 2px solid black;
 	border-radius: 10px;
 	color: black;
 	display: inline-block;
+	font-family: 'OpenSans-Bold';
 	padding: 10px 20px;
+	letter-spacing: 0.2rem;
 	text-decoration: none;
 
 }
 
-.minimalButton:hover {
+a.minimalButton:hover {
 
-	background-color: #990024;
+	background-color: #FFCCBC;
 
 }
 
-.minimalDiv {
+div.minimalDiv {
 
 	align-content: center;
-	background-color: red;
-	border: 5px solid white;
+	background-color: #E64A19;
+	border: 5px solid #cddc39;
 	border-radius: 10px;
 	display: inline-block;
 	padding: 20px 20px;
@@ -42,15 +57,27 @@ body {
 
 }
 
-.minimalList {
+ol.minimalList {
 
-	border: 5px solid white; 
+	background-color: #ff5722;
+	border: 5px solid #cddc39; 
 	border-radius: 10px;
+	color: #212121;
 	display: block;
+	font-family: 'OpenSans-Bold';
 	list-style-type: none;
 	margin: 10px auto;
 	padding: 20px 20px;
 	text-align: center;
 	width: auto;
 	
+}
+
+p.minimalTitle {
+
+	color: #FFFFFF;
+	font-family: 'OpenSans-RegularItalic';
+	font-size: 40px;
+	text-transform: uppercase;
+
 }
