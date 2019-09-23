@@ -42,9 +42,9 @@ function initGen() {
 }
 
 function getBestemmia() {
-	var doubleComboConsonantValue = 25 * 3;
-	var doubleConsonantValue = 50 * 2;
-	var doubleVocalValue = 75 * 2;
+	var doubleComboConsonantValue = 25;
+	var doubleConsonantValue = 50;
+	var doubleVocalValue = 75;
 	var strangerConsonantValue = 100;	
 
 	var memory = "";
