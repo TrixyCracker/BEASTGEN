@@ -42,20 +42,20 @@ function initGen() {
 }
 
 function getBestemmia() {
-	var doubleComboConsonantValue = 25;
-	var doubleConsonantValue = 50;
-	var doubleVocalValue = 75;
-	var strangerConsonantValue = 100;	
+	var doubleVocalValue = 20;
+	var doubleComboConsonantValue = 15;
+	var doubleConsonantValue = 10;
+	var strangerConsonantValue = 10;	
 
 	var memory = "";
 	var word = "";
 
 	var r = 0;
-	var wlength = Math.floor(Math.random() * 12) + 3;
+	var wlength = Math.floor(Math.random() * 10) + 3;
 	for(var temp = 0; temp < wlength; temp++) {
 
 		r = Math.floor(Math.random() * doubleComboConsonantValue); 
-		if (r == doubleComboConsonantValue - 1 && word.length > 2 && word.length % 2 == 0) {
+		if (r == Math.round(doubleComboConsonantValue) && word.length > 2 && word.length % 2 == 0) {
 
 			word += "gn" + " ";
 			memory = "";
@@ -64,7 +64,7 @@ function getBestemmia() {
 		}
 
 		r = Math.floor(Math.random() * doubleConsonantValue); 
-		if (r == doubleConsonantValue - 1 && word.length > 2 && word.length % 2 == 0) {
+		if (r == Math.round(doubleConsonantValue) && word.length > 2 && word.length % 2 == 0) {
 
 			word += memory + " ";
 			memory = "";
@@ -73,7 +73,7 @@ function getBestemmia() {
 		}
 
 		r = Math.floor(Math.random() * doubleVocalValue); 
-		if (r == doubleVocalValue - 1 && word.length > 3 && word.length % 2 == 1) {
+		if (r == Math.round(doubleVocalValue) && word.length > 3 && word.length % 2 == 1) {
 
 			word += memory + " ";
 			memory = "";
@@ -82,7 +82,7 @@ function getBestemmia() {
 		}
 
 		r = Math.floor(Math.random() * strangerConsonantValue); 
-		if (r == strangerConsonantValue - 1 && word.length > 2 && word.length % 2 == 0) {
+		if (r == Math.round(strangerConsonantValue) && word.length > 2 && word.length % 2 == 0) {
 
 			r = Math.floor(Math.random() * stranger.length); 
 			word += stranger.charAt(r);
@@ -108,7 +108,9 @@ function getBestemmia() {
 
 	}
 
-	var bastemmia = "Dio " + word.replace(" ", "");
+	word = word.replace(/\ /g, '');
+
+	var bastemmia = "Dio " + word;
 
 	return bastemmia;
 }
