@@ -1,6 +1,14 @@
+@font-face {
+
+	font-family: 'OpenSans';
+	src: url('Open_Sans/OpenSans-Regular.ttf');
+
+}
+
 body {
 
-	background-color: grey;
+	background-color: #2b2424;
+	font-family: 'OpenSans';
 
 }
 
@@ -30,12 +38,19 @@ body {
 	border-radius: 10px;
 	display: inline-block;
 	padding: 20px 20px;
-	width: 40%;
+	width: 500px;
 
 }
 
 .minimalList {
 
-	display: inline-block;
+	border: 5px solid white; 
+	border-radius: 10px;
+	display: block;
+	list-style-type: none;
+	margin: 10px auto;
+	padding: 20px 20px;
+	text-align: center;
+	width: auto;
 	
 }
