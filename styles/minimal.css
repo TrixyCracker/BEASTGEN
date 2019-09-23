@@ -36,12 +36,19 @@ a.minimalButton {
 	padding: 10px 20px;
 	letter-spacing: 0.2rem;
 	text-decoration: none;
+	
 
 }
 
 a.minimalButton:hover {
 
 	background-color: #FFCCBC;
+
+}
+
+a.minimalButton:focus {
+
+	outline: 0;
 
 }
 
