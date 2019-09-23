@@ -1,0 +1,41 @@
+body {
+
+	background-color: grey;
+
+}
+
+.minimalButton {
+
+	background-color: #ff003c;
+	border: 2px solid black;
+	border-radius: 10px;
+	color: black;
+	display: inline-block;
+	padding: 10px 20px;
+	text-decoration: none;
+
+}
+
+.minimalButton:hover {
+
+	background-color: #990024;
+
+}
+
+.minimalDiv {
+
+	align-content: center;
+	background-color: red;
+	border: 5px solid white;
+	border-radius: 10px;
+	display: inline-block;
+	padding: 20px 20px;
+	width: 40%;
+
+}
+
+.minimalList {
+
+	display: inline-block;
+	
+}
