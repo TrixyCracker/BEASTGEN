@@ -116,6 +116,7 @@ function getBestemmia() {
 
 function setupStrings() {
 
+
 	for(var key in consonantsDict) 
 		for(var i = 0; i < consonantsDict[key]; i++)
 			consonants += key;

@@ -82,9 +82,16 @@ ol.minimalList {
 
 p.minimalTitle {
 
+	animation: color-change 2s infinite;
 	color: #FFFFFF;
 	font-family: 'OpenSans-RegularItalic';
 	font-size: 40px;
 	text-transform: uppercase;
 
+}
+
+@keyframes color-change {
+    0% { color: #E64A19; }
+    50% { color: #FFCCBC; }
+    100% { color: #E64A19; }
 }
