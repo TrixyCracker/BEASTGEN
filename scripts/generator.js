@@ -41,6 +41,7 @@ function initGen() {
 
 		_list.appendChild(_li);
 	}
+	console.log("DIO");
 
 
 
@@ -59,10 +60,10 @@ function getBestemmia() {
 	for (var temp = 0; temp < wlength; temp++) 
 	{
 
-		if (word.length % 2 == 0) 
+		if (word.length % 2 == 1) 
 		{
 
-			r = Math.floor(Math.random() * 10);
+			r = Math.floor(Math.random() * 8);
 
 			if (word.length > 2 && r == 5) {
 				r = Math.floor(Math.random() * 3);
@@ -71,11 +72,9 @@ function getBestemmia() {
 
 					case 0:
 						word += "gn" + " ";
-						memory = "";
 						break;
 					case 1: 
 						word += memory + " ";
-						memory = "";
 						break;
 					case 2:
 						r = Math.floor(Math.random() * stranger.length);
@@ -84,6 +83,7 @@ function getBestemmia() {
 
 				}
 
+				memory = "";
 			}
 			else {
 				
@@ -98,6 +98,9 @@ function getBestemmia() {
 		{
 
 			r = Math.floor(Math.random() * 200);
+
+			if (r== 50)
+			console.log(r);
 			if (r == 50 && word.length > 2) {
 
 				word += memory + " ";
