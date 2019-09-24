@@ -23,7 +23,6 @@ var vocals = "";
 
 
 function initGen() {
-	setupStrings();
 
 	var _list = document.getElementById("list");
 	_list.innerHTML = "";
