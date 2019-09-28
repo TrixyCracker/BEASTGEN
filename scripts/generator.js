@@ -34,22 +34,24 @@ function initGen() {
 	_list.innerHTML = "";
 
 
-	for (var i = 0; i < 25; i++) {
+	for (var i = 0; i < 30; i++) {
 		var _li = document.createElement("li");
 
 		_li.appendChild(document.createTextNode(getBestemmia()));
 
 		_list.appendChild(_li);
 	}
-	console.log("DIO");
-
-
 
 }
 
 function getBestemmia() {
+	let a = 50; //doubleComboConsonantValue
+	let b = 50; //doubleConsonantValue
+	let c = 50; //strangerValue
 
-	var memory = "";
+	let a1 = 10; //doubleVocalValue
+
+	let memory = [ "", "" ];
 	var word = "";
 
 	var offset = Math.floor(Math.random() * 2);
@@ -57,61 +59,61 @@ function getBestemmia() {
 
 	var r = 0;
 	var wlength = Math.floor(Math.random() * 10) + 3;
-	for (var temp = 0; temp < wlength; temp++) 
+	for (var temp = 0; temp < wlength; temp = word.replace(/\ /g, '').length) 
 	{
 
 		if (word.length % 2 == 1) 
-		{
+		{	
 
-			r = Math.floor(Math.random() * 8);
 
-			if (word.length > 2 && r == 5) {
-				r = Math.floor(Math.random() * 3);
+			r = Math.floor(Math.random() * (a + b + c + 1000));
 
-				switch(r) {
+			if (word.length > 2 && r < (a+b+c)) {
 
-					case 0:
-						word += "gn" + " ";
-						break;
-					case 1: 
-						word += memory + " ";
-						break;
-					case 2:
-						r = Math.floor(Math.random() * stranger.length);
-						word += stranger.charAt(r);
-						break;
+				if (r < a) {
+
+					word += "gn" + " ";
+
+				}
+				else if (a <= r < (a + b) && memory != "") {
+
+					word += memory[0] + " ";
+					memory = [ "" , ""];
+
+				}
+				else if ((a + b) <= r < (a + b + c)) {
+
+					r = Math.floor(Math.random() * stranger.length);
+					word += stranger.charAt(r);
 
 				}
 
-				memory = "";
 			}
 			else {
-				
-				r = Math.floor(Math.random() * consonants.length);
-				word += consonants.charAt(r);;
-				memory = consonants.charAt(r);
 
-			}		
+				r = Math.floor(Math.random() * consonants.length);
+				word += consonants.charAt(r);
+				memory[0] = consonants.charAt(r);
+
+			}	
 
 		}
 		else 
 		{
 
-			r = Math.floor(Math.random() * 200);
+			r = Math.floor(Math.random() * (a1 + 1000));
 
-			if (r== 50)
-			console.log(r);
-			if (r == 50 && word.length > 2) {
+			if (word.length > 2 && r < a1 && memory != "") {
 
-				word += memory + " ";
-				memory = "";
+				word += memory[1] + " ";
+				memory = [ "" , ""];
 
 			}
 			else {
 
 				r = Math.floor(Math.random() * vocals.length);
 				word += vocals.charAt(r);
-				memory = vocals.charAt(r);
+				memory[1] = vocals.charAt(r);
 
 			}
 
@@ -127,7 +129,6 @@ function getBestemmia() {
 }
 
 function setupStrings() {
-
 
 	for (var key in consonantsDict)
 		for (var i = 0; i < consonantsDict[key]; i++)
