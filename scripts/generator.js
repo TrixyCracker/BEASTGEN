@@ -1,8 +1,4 @@
-var consonantsDict = new Object();
-var strangerDict = new Object();
-var vocalsDict = new Object();
-
-consonantsDict = {
+let consonantsDict = {
 	"b": 2, "c": 9, "d": 8,
 	"f": 2, "g": 3, "h": 3,
 	"l": 13, "m": 5, "n": 14,
@@ -11,17 +7,17 @@ consonantsDict = {
 	"z": 1
 };
 
-strangerDict = {
+let strangerDict = {
 	"j": 1, "k": 1, "w": 1,
 	"x": 3, "y": 1
 };
 
-vocalsDict = {
+let vocalsDict = {
 	"a": 12, "e": 12, "i": 11,
 	"o": 10, "u": 3
 };
 
-
+let doubleConsonant = [ "gn", "rc", "st", "cr", "fr", "sc", "sr" ];
 
 var consonants = "";
 var stranger = "";
@@ -51,7 +47,6 @@ function getBestemmia() {
 
 	let a1 = 10; //doubleVocalValue
 
-	let memory = [ "", "" ];
 	var word = "";
 
 	var offset = Math.floor(Math.random() * 2);
@@ -62,9 +57,8 @@ function getBestemmia() {
 	for (var temp = 0; temp < wlength; temp = word.replace(/\ /g, '').length) 
 	{
 
-		if (word.length % 2 == 1) 
+		if (word.length % 2 == 0) 
 		{	
-
 
 			r = Math.floor(Math.random() * (a + b + c + 1000));
 
@@ -72,13 +66,14 @@ function getBestemmia() {
 
 				if (r < a) {
 
-					word += "gn" + " ";
+					r = Math.floor(Math.random() * doubleConsonant.length);
+					word += doubleConsonant[r] + " ";
 
 				}
-				else if (a <= r < (a + b) && memory != "") {
+				else if (a <= r < (a + b)) {
 
-					word += memory[0] + " ";
-					memory = [ "" , ""];
+					r = Math.floor(Math.random() * consonants.length);
+					word += consonants.charAt(r) + consonants.charAt(r) + " ";
 
 				}
 				else if ((a + b) <= r < (a + b + c)) {
@@ -93,9 +88,8 @@ function getBestemmia() {
 
 				r = Math.floor(Math.random() * consonants.length);
 				word += consonants.charAt(r);
-				memory[0] = consonants.charAt(r);
 
-			}	
+			}
 
 		}
 		else 
@@ -103,17 +97,16 @@ function getBestemmia() {
 
 			r = Math.floor(Math.random() * (a1 + 1000));
 
-			if (word.length > 2 && r < a1 && memory != "") {
+			if (word.length > 2 && r < a1) {
 
-				word += memory[1] + " ";
-				memory = [ "" , ""];
+				r = Math.floor(Math.random() * vocals.length);
+				word += vocals.charAt(r) + vocals.charAt(r) + " ";
 
 			}
 			else {
 
 				r = Math.floor(Math.random() * vocals.length);
 				word += vocals.charAt(r);
-				memory[1] = vocals.charAt(r);
 
 			}
 
@@ -121,7 +114,7 @@ function getBestemmia() {
 
 	}
 
-	word = word.replace(/\ /g, '');
+	word = word.replace(/ /g, '');
 
 	var bestemmia = "Dio " + word;
 
