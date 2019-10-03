@@ -19,19 +19,19 @@ let vocalsDict = {
 
 let doubleConsonant = [ "gn", "rc", "st", "cr", "fr", "sc", "sr" ];
 
-var consonants = "";
-var stranger = "";
-var vocals = "";
+let consonants = "";
+let stranger = "";
+let vocals = "";
 
 
 function initGen() {
 
-	var _list = document.getElementById("list");
+	let _list = document.getElementById("list");
 	_list.innerHTML = "";
 
 
-	for (var i = 0; i < 30; i++) {
-		var _li = document.createElement("li");
+	for (let i = 0; i < 30; i++) {
+		let _li = document.createElement("li");
 
 		_li.appendChild(document.createTextNode(getBestemmia()));
 
@@ -47,14 +47,14 @@ function getBestemmia() {
 
 	let a1 = 10; //doubleVocalValue
 
-	var word = "";
+	let word = "";
 
-	var offset = Math.floor(Math.random() * 2);
+	let offset = Math.floor(Math.random() * 2);
 	if (offset) word = " ";
 
-	var r = 0;
-	var wlength = Math.floor(Math.random() * 10) + 3;
-	for (var temp = 0; temp < wlength; temp = word.replace(/\ /g, '').length) 
+	let r = 0;
+	let wlength = Math.floor(Math.random() * 10) + 3;
+	for (let temp = 0; temp < wlength; temp = word.replace(/\ /g, '').length) 
 	{
 
 		if (word.length % 2 == 0) 
@@ -116,23 +116,28 @@ function getBestemmia() {
 
 	word = word.replace(/ /g, '');
 
-	var bestemmia = "Dio " + word;
+	let bestemmia = "Dio " + word;
 
 	return bestemmia;
 }
 
-function setupStrings() {
+function setup() {
 
-	for (var key in consonantsDict)
-		for (var i = 0; i < consonantsDict[key]; i++)
+	//Setup delle stringe P.S. non mettere codice prima di queste
+	for (let key in consonantsDict)
+		for (let i = 0; i < consonantsDict[key]; i++)
 			consonants += key;
 
-	for (var key in strangerDict)
-		for (var i = 0; i < strangerDict[key]; i++)
+	for (let key in strangerDict)
+		for (let i = 0; i < strangerDict[key]; i++)
 			stranger += key;
 
-	for (var key in vocalsDict)
-		for (var i = 0; i < vocalsDict[key]; i++)
+	for (let key in vocalsDict)
+		for (let i = 0; i < vocalsDict[key]; i++)
 			vocals += key;
+
+	//Aggiunta della bestemmia al sottotitolo
+	let _title = document.getElementById("title");
+	_title.appendChild(document.createTextNode("Tra il dire e il fare c'è di mezzo il " + getBestemmia()))
 
 }
