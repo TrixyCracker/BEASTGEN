@@ -1,10 +1,10 @@
 let consonantsDict = {
-	"b": 2, "c": 9, "d": 8,
-	"f": 2, "g": 3, "h": 3,
-	"l": 13, "m": 5, "n": 14,
-	"p": 6, "q": 1, "r": 13,
-	"s": 10, "t": 11, "v": 4,
-	"z": 1
+	"b": 92, "c": 450, "d": 373,
+	"f": 95, "g": 164, "h": 154,
+	"l": 651, "m": 251, "n": 688,
+	"p": 305, "q": 51, "r": 637,
+	"s": 498, "t": 562, "v": 210,
+	"z": 49
 };
 
 let strangerDict = {
@@ -13,8 +13,29 @@ let strangerDict = {
 };
 
 let vocalsDict = {
-	"a": 12, "e": 12, "i": 11,
-	"o": 10, "u": 3
+	"a": 1174, "e": 1179, "i": 1128,
+	"o": 983, "u": 301
+};
+
+let combination_dictionary = {
+
+	"b" : ["bb", "br"],
+	"c" : ["cc", "cl", "cr"],
+	"d" : ["dd", "dr"],
+	"f" : ["ff", "fl", "fr"],
+	"g" : ["gg", "gh", "gl", "gn", "gr"],
+	"h" : ["hh"],
+	"l" : ["ll", "ld", "lg", "lm", "ln", "lp", "lt", "lz"],
+	"m" : ["mm", "mc"],
+	"n" : ["nn", "nc", "nd", "nf", "ng", "ns", "nt"],
+	"p" : ["pp"],
+	"q" : ["qq"],
+	"r" : ["rr", "rc", "rf", "rg", "rl", "rm", "rp", "rs", "rt", "rv"],
+	"s" : ["ss"],
+	"t" : ["tt"],
+	"v" : ["vv"],
+	"z" : ["zz"]
+
 };
 
 let doubleConsonant = [ "gn", "rc", "st", "cr", "fr", "sc", "sr" ];
@@ -30,7 +51,7 @@ function initGen() {
 	_list.innerHTML = "";
 
 
-	for (let i = 0; i < 30; i++) {
+	for (let i = 0; i < 50; i++) {
 		let _li = document.createElement("li");
 
 		_li.appendChild(document.createTextNode(getBestemmia()));
@@ -40,7 +61,59 @@ function initGen() {
 
 }
 
+function random_int(min, max)
+{
+	return Math.floor(Math.random() * (max - min) + min);
+}
+
 function getBestemmia() {
+	const combination_probability = 15;
+
+	let randnum;
+	let randnum2;
+	let randnum3;
+
+	let word = "";
+
+	let word_lenght = random_int(3, 12);
+	if (word_lenght % 2 == 1) 
+		word_lenght += 1;
+
+	for (let i = 0; i < word_lenght; i = word.length)
+	{
+
+		if (i % 2 == 0) 
+		{
+
+			randnum = random_int(0, consonants.length);
+
+			
+			if (random_int(0, 100) < combination_probability && i > 1)
+			{
+				word_lenght += 2;
+
+				randnum2 = random_int(0, combination_dictionary[consonants[randnum]].length);
+
+				word += combination_dictionary[consonants[randnum]][randnum2];
+				word += " ";
+			}
+			else
+			{
+				word += consonants[randnum];
+			}
+			
+		}
+		else
+		{
+			randnum = random_int(0, vocals.length);
+
+			word += vocals[randnum];
+		}
+
+	}
+
+	/*
+
 	let a = 50; //doubleComboConsonantValue
 	let b = 50; //doubleConsonantValue
 	let c = 50; //strangerValue
@@ -118,7 +191,11 @@ function getBestemmia() {
 
 	let bestemmia = "Dio " + word;
 
-	return bestemmia;
+	*/
+
+	word = word.replace(/ /g, "");
+
+	return "Dio " + word;
 }
 
 function setup() {
