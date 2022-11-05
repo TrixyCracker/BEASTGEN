@@ -1,0 +1,117 @@
+@font-face {
+
+	font-family: 'OpenSans';
+	src: url('Open_Sans/OpenSans-Regular.ttf');
+
+}
+
+@font-face {
+
+	font-family: 'OpenSans-Bold';
+	src: url('Open_Sans/OpenSans-Bold.ttf');
+
+}
+
+@font-face {
+
+	font-family: 'OpenSans-RegularItalic';
+	src: url('Open_Sans/OpenSans-RegularItalic.ttf');
+
+}
+
+body {
+
+	background-color: #2b2424;
+
+}
+
+a.minimalButton {
+
+	background-color: #222020;
+	border: 2px solid;
+	border-image-source: linear-gradient(-90deg, rgb(219, 37, 37), rgb(12, 201, 107));
+	border-image-slice: 1;
+	color: rgb(207, 188, 188);
+	display: inline-block;
+	font-family: 'OpenSans-Bold';
+	padding: 10px 20px;
+	letter-spacing: 0.2rem;
+	text-decoration: none;
+	
+
+}
+
+a.minimalButton:hover {
+
+	animation: button-anim 2s infinite;
+
+}
+
+a.minimalButton:focus {
+
+	outline: 0;
+
+}
+
+div.minimalDiv {
+
+	align-content: center;
+	background-color: #222020;
+	border: 5px solid;
+	border-image-source: linear-gradient(-45deg, rgb(219, 37, 37), rgb(12, 201, 107));
+	border-image-slice: 1;
+	display: inline-block;
+	padding: 20px 20px;
+	width: 500px;
+
+}
+
+ol.minimalList {
+
+	background-color: #ff5722;
+	border: 5px solid #cddc39; 
+	border-radius: 10px;
+	color: #212121;
+	display: block;
+	font-family: 'OpenSans-Bold';
+	list-style-type: none;
+	margin: 10px auto;
+	padding: 20px 20px;
+	text-align: center;
+	width: auto;
+	
+}
+
+p.minimalTitle {
+
+	animation: color-change 2s infinite;
+	color: #FFFFFF;
+	font-family: 'OpenSans-RegularItalic';
+	font-size: 40px;
+	text-transform: uppercase;
+
+}
+
+@keyframes color-change {
+    0% { color: #E64A19; }
+    50% { color: #FFCCBC; }
+    100% { color: #E64A19; }
+}
+
+@keyframes button-anim {
+	0% 
+	{
+		background-color: whitesmoke;
+		color:black;
+	}
+	50%
+	{
+		background-color: black;
+		color:whitesmoke;
+	}
+	100% 
+	{
+		background-color: whitesmoke;
+		color:black;
+	}
+}
